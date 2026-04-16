@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untuk Kamu ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            margin-top: 50px;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+
+        img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Aku sayang kamu ❤️</h1>
+    <p>Kamu orang paling spesial di hidup aku 💕</p>
+
+    <!-- FOTO -->
+    <img src="{{ url_for('static', filename='foto1.jpg') }}">
+    <img src="{{ url_for('static', filename='foto2.jpg') }}">
+    <img src="{{ url_for('static', filename='foto3.jpg') }}">
+    <img src="{{ url_for('static', filename='foto4.jpg') }}">
+    <img src="{{ url_for('static', filename='foto5.jpg') }}">
+
+    <!-- MUSIK -->
+    <audio autoplay loop>
+        <source src="{{ url_for('static', filename='lagu.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <!-- ANIMASI LOVE -->
+    <script>
+    setInterval(() => {
+        let love = document.createElement("div");
+        love.innerHTML = "❤️";
+        love.style.position = "fixed";
+        love.style.left = Math.random() * 100 + "vw";
+        love.style.top = "-20px";
+        love.style.fontSize = "24px";
+        document.body.appendChild(love);
+
+        let fall = setInterval(() => {
+            love.style.top = (love.offsetTop + 5) + "px";
+            if (love.offsetTop > window.innerHeight) {
+                love.remove();
+                clearInterval(fall);
+            }
+        }, 30);
+    }, 400);
+    </script>
+
+</body>
+</html>
