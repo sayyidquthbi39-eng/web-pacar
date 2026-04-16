@@ -26,6 +26,21 @@
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4d6d;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff2e55;
+        }
     </style>
 </head>
 
@@ -41,10 +56,18 @@
     <img src="{{ url_for('static', filename='foto4.jpg') }}">
     <img src="{{ url_for('static', filename='foto5.jpg') }}">
 
-    <!-- MUSIK -->
-    <audio autoplay loop>
+    <!-- MUSIK (FIX HP) -->
+    <audio id="lagu" loop>
         <source src="{{ url_for('static', filename='lagu.mp3') }}" type="audio/mpeg">
     </audio>
+
+    <br>
+
+    <p>🔊 Klik tombol untuk putar musik</p>
+
+    <button onclick="document.getElementById('lagu').play()">
+        Putar Musik 🎵
+    </button>
 
     <!-- ANIMASI LOVE -->
     <script>
